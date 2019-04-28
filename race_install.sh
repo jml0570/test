@@ -233,7 +233,7 @@ syncWallet() {
 
 	echo -e "${YELLOW}*** [STEP 10/${MAX}] *** Syncing wallet ... this can take a long time ... please be patient!\n${NONE}"
 
-    until $HOMEDIR/$COINCORE/$COINCLI mnsync status | grep -m 1 '"IsBlockchainSynced": true'; do echo `$HOMEDIR/$COINCORE/$COINCLI getblockcount`; sleep 5 ; done > /dev/null 2>&1
+    until $HOMEDIR/$COINCORE/$COINCLI mnsync status | grep -m 1 '"IsBlockchainSynced": true'; do echo `$HOMEDIR/$COINCORE/$COINCLI getblockcount`; sleep 5 ; done 2>/dev/null
     echo -e "${GREEN}* ... Blockchain synced ... ${NONE}"
     until $HOMEDIR/$COINCORE/$COINCLI mnsync status | grep -m 1 '"IsMasternodeListSynced": true'; do sleep 5 ; done > /dev/null 2>&1
 	echo -e "${GREEN}* ... Masternodelist synced ... ${NONE}"
